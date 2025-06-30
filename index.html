@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Seblak Linggau</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css" />
+  <script>
+    // Dark Mode Toggle
+    window.onload = () => {
+      const toggle = document.getElementById("toggleDark");
+      const body = document.body;
+      if (localStorage.getItem("theme") === "dark") {
+        body.classList.add("dark");
+        toggle.textContent = "☀️";
+      }
+      toggle.addEventListener("click", () => {
+        body.classList.toggle("dark");
+        toggle.textContent = body.classList.contains("dark") ? "☀️" : "🌙";
+        localStorage.setItem("theme", body.classList.contains("dark") ? "dark" : "light");
+      });
+    };
+  </script>
+  <style>
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: linear-gradient(to bottom right, #fff6f6, #ffecec);
+      color: #333;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      transition: all 0.3s ease;
+    }
+    header {
+      text-align: center;
+      padding: 3rem 1rem;
+      background: linear-gradient(135deg, #ffeaea, #fff0f0);
+      border-bottom: 2px solid #ffb3b3;
+      position: relative;
+    }
+    header h1 {
+      font-size: 2.8rem;
+      font-weight: 800;
+      color: #d62828;
+    }
+    header p {
+      font-size: 1.1rem;
+      color: #555;
+      margin-top: 0.5rem;
+    }
+    #toggleDark {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: transparent;
+      font-size: 1.5rem;
+      cursor: pointer;
+      border: none;
+    }
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      padding: 3rem 2rem;
+    }
+    .card {
+      background: white;
+      border-radius: 1rem;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+      padding: 1rem;
+      text-align: center;
+      transition: 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+    }
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 0.8rem;
+    }
+    .why {
+      padding: 3rem 1.5rem;
+      text-align: center;
+    }
+    .why h2 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      color: #d62828;
+    }
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+      max-width: 800px;
+      margin: auto;
+    }
+    .why-item {
+      background: #fff6f6;
+      padding: 1rem;
+      border-radius: 1rem;
+      box-shadow: 0 5px 12px rgba(0,0,0,0.05);
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+    .testimoni {
+      padding: 2rem;
+      text-align: center;
+    }
+    .testimoni h2 {
+      font-size: 1.8rem;
+      color: #d62828;
+    }
+    .testimonial-card {
+      display: flex;
+      align-items: center;
+      background: linear-gradient(135deg, #fff5f5, #ffeaea);
+      padding: 1rem;
+      border-radius: 1rem;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      margin: 1rem auto;
+      max-width: 600px;
+      gap: 1rem;
+    }
+    .testimonial-card .avatar {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    .testimonial-content p {
+      font-style: italic;
+      margin: 0.5rem 0;
+    }
+    .testimonial-content span {
+      font-size: 0.85rem;
+      color: #666;
+      display: block;
+    }
+    .order-form {
+      padding: 2rem;
+      background: #fff0f0;
+      text-align: center;
+    }
+    .order-form form {
+      max-width: 500px;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .order-form input,
+    .order-form select,
+    .order-form textarea {
+      padding: 0.8rem;
+      font-size: 1rem;
+      border: 1.5px solid #ffb3b3;
+      border-radius: 0.6rem;
+    }
+    .order-form button {
+      background: #d62828;
+      color: white;
+      border: none;
+      padding: 0.9rem;
+      border-radius: 0.6rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .wa-sticky {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25D366;
+      color: white;
+      padding: 12px 16px;
+      border-radius: 30px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      gap: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: #ffb3b3;
+      color: white;
+    }
+    /* DARK MODE */
+    body.dark {
+      background: #1a1a1a;
+      color: #eee;
+    }
+    body.dark header,
+    body.dark .card,
+    body.dark .why-item,
+    body.dark .testimonial-card,
+    body.dark .order-form {
+      background: #2e2e2e;
+      color: #eee;
+    }
+    body.dark footer {
+      background: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Seblak Linggau</h1>
+    <p>Pedasnya Bikin Nagih! Siap antar ke rumah kamu 🚚</p>
+    <button id="toggleDark" aria-label="Toggle Dark Mode">🌙</button>
+  </header>
+
+  <section class="products">
+    <div class="card">
+      <img src="seblak1.jpg" alt="Seblak Original"/>
+      <h2>Original</h2>
+      <p>Seblak klasik khas Linggau yang nagih!</p>
+    </div>
+    <div class="card">
+      <img src="seblak2.jpg" alt="Seblak Ceker"/>
+      <h2>Ceker</h2>
+      <p>Ceker empuk berpadu kuah gurih pedas.</p>
+    </div>
+    <div class="card">
+      <img src="seblak3.jpg" alt="Seblak Seafood"/>
+      <h2>Seafood</h2>
+      <p>Udang, cumi, bakso ikan, kerang semua jadi satu.</p>
+    </div>
+    <div class="card">
+      <img src="seblak4.jpg" alt="Seblak Level Max"/>
+      <h2>Level Max</h2>
+      <p>Untuk pecinta pedas sejati. Berani coba?</p>
+    </div>
+  </section>
+
+  <section class="why">
+    <h2>Kenapa Pilih <span style="color:#d62828;">Seblak Linggau</span>?</h2>
+    <div class="why-grid">
+      <div class="why-item">🔥 Pedas khas Linggau, autentik & nagih</div>
+      <div class="why-item">🍤 Topping lengkap: ceker, seafood, dll</div>
+      <div class="why-item">🥣 Bahan fresh & higienis tiap hari</div>
+      <div class="why-item">🚀 Order cepat via WhatsApp</div>
+      <div class="why-item">💸 Harga ramah kantong mulai 10rb</div>
+      <div class="why-item">🛵 Antar langsung ke rumah kamu!</div>
+    </div>
+  </section>
+
+  <section class="testimoni">
+    <h2>Kata Mereka</h2>
+    <div class="testimonial-card">
+      <img src="avatar1.jpg" alt="Rina" class="avatar"/>
+      <div class="testimonial-content">
+        <p>“Seblak terenak se-Linggau! Kuahnya nendang banget.”</p>
+        <span>— Rina, Mahasiswa</span>
+        <span>⭐⭐⭐⭐⭐</span>
+      </div>
+    </div>
+    <div class="testimonial-card">
+      <img src="avatar2.jpg" alt="Arief" class="avatar"/>
+      <div class="testimonial-content">
+        <p>“Repeat order 3x! Cekernya empuk banget.”</p>
+        <span>— Arief, Guru</span>
+        <span>⭐⭐⭐⭐⭐</span>
+      </div>
+    </div>
+    <div class="testimonial-card">
+      <img src="avatar3.jpg" alt="Sari" class="avatar"/>
+      <div class="testimonial-content">
+        <p>“Topping-nya banyak, cocok banget buat malam dingin.”</p>
+        <span>— Sari, Ibu Rumah Tangga</span>
+        <span>⭐⭐⭐⭐⭐</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="order-form">
+    <h2>Form Pemesanan</h2>
+    <form action="https://docs.google.com/forms/d/e/1FAIpQLSfqJ4nEbsA275owaEvxI37MP6OsytwAm7TdWdzkTKWDvOfJrg/formResponse" method="POST" target="_blank">
+      <input name="entry.707037170" type="text" placeholder="Nama Lengkap" required/>
+      <input name="entry.474835226" type="text" placeholder="Alamat Lengkap" required/>
+      <input name="entry.145583425" type="tel" placeholder="No HP" required/>
+      <select name="entry.1529378101" required>
+        <option value="">Pilih Varian Seblak</option>
+        <option value="Original">Original</option>
+        <option value="Ceker">Ceker</option>
+        <option value="Seafood">Seafood</option>
+        <option value="Level Max">Level Max</option>
+      </select>
+      <input name="entry.667924062" type="number" placeholder="Jumlah Porsi" required min="1"/>
+      <textarea name="entry.1896601480" rows="3" placeholder="Catatan Tambahan (opsional)"></textarea>
+      <button type="submit">Kirim Pesanan</button>
+    </form>
+  </section>
+
+  <a href="https://wa.me/6283138334108" class="wa-sticky" target="_blank">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WA" width="20" />
+    WhatsApp Kami
+  </a>
+
+  <footer>
+    &copy; 2025 Seblak Linggau — Powered by Pedas Berkah!
+  </footer>
+</body>
+</html>
